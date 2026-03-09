@@ -1,0 +1,139 @@
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #05070a; }
+::-webkit-scrollbar-thumb { background: #1c2128; border-radius: 10px; border: 2px solid #05070a; }
+
+/* --- GLOBAL --- */
+html, body {
+  margin: 0; padding: 0;
+  overflow-y: auto !important; 
+  overflow-x: hidden !important;
+  background-color: #05070a;
+  height: auto !important;
+  color: #f0f6fc;
+  font-family: 'Inter', sans-serif;
+}
+
+.details-main-container { display: flex; flex-direction: column; width: 100vw; background: #05070a; }
+
+.details-header { text-align: center; padding: 15px 0 5px 0; }
+.details-title { font-size: clamp(24px, 5vh, 42px); font-weight: 800; margin: 0; }
+
+/* Fixed purple link issue */
+.source-tag-detail {
+  display: inline-block;
+  background: rgba(255, 166, 87, 0.05); 
+  border: 1px solid rgba(255, 166, 87, 0.4); 
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+}
+
+.source-tag-detail a, 
+.source-tag-detail a:visited {
+  color: #ffa657 !important;
+  text-decoration: underline;
+}
+
+/* --- MAP --- */
+.map-view-wrapper {
+  width: 100vw;
+  height: auto; 
+  background: radial-gradient(circle at center, #111418 0%, #05070a 100%);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.main-map-svg {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  /* Remove any transform or absolute positioning that might offset the map */
+  transform: none; 
+  position: relative;
+}
+
+.map-legend-mobile {
+  display: flex; justify-content: center; gap: 20px;
+  padding: 10px 0; z-index: 20; position: relative;
+}
+
+.legend-item { display: flex; align-items: center; font-size: 9px; font-weight: 700; color: #8b949e; }
+.dot { width: 7px; height: 7px; border-radius: 50%; margin-right: 10px; }
+.dot.red { background: #f85149; box-shadow: 0 0 8px #f85149; }
+.dot.orange { background: #ffa657; box-shadow: 0 0 8px #ffa657; }
+.dot.grey { background: rgba(255, 255, 255, 0.2); }
+
+/* --- TOOLTIP --- */
+.clean-tooltip {
+  background: #000000 !important;
+  border: 1px solid rgba(255, 166, 87, 0.3) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+}
+
+.vertical-info { display: flex; flex-direction: column; gap: 4px; }
+.t-name { font-weight: 800; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4px; margin-bottom: 4px; }
+.t-row { font-size: 11px; color: #8b949e; }
+.t-total { font-weight: 800; font-size: 13px; margin-top: 4px; }
+.t-iran .t-total { color: #ff7b72; }
+.t-us .t-total { color: #58a6ff; }
+.t-name-only { padding: 5px 10px; color: #fff; font-weight: 700; font-size: 12px; }
+
+/* --- TABLE --- */
+.details-table-section { padding: 30px 0; background: #05070a; }
+
+.centered-table-wrapper {
+  width: 90%; max-width: 850px;
+  margin: 0 auto; border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.impact-table { width: 100%; border-collapse: collapse; }
+.impact-table th { padding: 15px; font-size: 12px; font-weight: 800; color: #ffffff; border-bottom: 2px solid rgba(255, 255, 255, 0.1); }
+.table-row-grid td { padding: 15px; font-size: 14px; color: #f0f6fc; border-bottom: 1px solid rgba(255, 255, 255, 0.08); border-right: 1px solid rgba(255, 255, 255, 0.03); }
+.table-row-grid td:last-child { border-right: none; }
+
+.align-left { text-align: left !important; padding-left: 20px !important; }
+.align-center { text-align: center !important; }
+.align-right { text-align: right !important; padding-right: 20px !important; }
+
+.val-us { color: #58a6ff !important; font-weight: 800; }
+.val-iran { color: #ff7b72 !important; font-weight: 800; }
+
+.see-more-btn {
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8b949e; padding: 8px 20px; border-radius: 8px; font-size: 10px; cursor: pointer;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+.details-title { font-size: 30px; font-weight: 800; margin: 0; }
+
+  .map-view-wrapper {
+    height: auto; /* Allow the map to define its own height */
+    min-height: 100px;
+    margin-top: 40px; /* Remove top/bottom margins causing gaps */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-map-svg {
+    width: 130%;
+    height: auto;
+    /* Remove any transform or absolute positioning that might offset the map */
+    transform: none; 
+  }
+
+  /* Keep the legend centered above the bigger map */
+  .map-legend-mobile {
+    margin-bottom: -20px; /* Bring the map closer to the legend */
+    position: relative;
+    top: 0;
+  }
+}

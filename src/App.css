@@ -1,0 +1,258 @@
+@media (max-width: 768px) {
+  /* Prevent scrolling to keep the "Monitor" feel */
+  html, body {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+
+  .monitor-container {
+    padding: 1.5vh 0 0 0;
+    justify-content: space-around; /* Spreads content to fill the "empty" look */
+  }
+
+  /* 1. Shorten the Live Tag */
+  .top-pill {
+    padding: 6px 12px;
+    font-size: 8px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* 2. Tighten Topic and Source Tag */
+  .main-title {
+    font-size: 40px !important;
+    margin-bottom: 35px !important;
+  }
+  
+  .sub-title {
+    margin-top: 2vh;
+    font-size: 8px;
+  }
+
+  .source-tag {
+    margin-top: 10px !important; /* Brought closer to topic */
+    padding: 4px 12px;
+    font-size: 8px;
+  }
+
+  /* 3. Central Box Margins */
+.center-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 2vh 0;
+    position: relative;
+  }
+
+  /* Background Glow to make it engaging */
+  .center-section::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--accent-blue);
+    filter: blur(80px);
+    opacity: 0.15;
+    z-index: 0;
+  }
+
+  /* 2. Compact Data Card - Centered and Border-Safe */
+  .data-card {
+    position: relative;
+    z-index: 1;
+    padding: 2.5vh 15px;
+    width: 100%;
+    max-width: 310px; /* Slightly narrower for better side margins */
+    margin: 0 auto; 
+    border-radius: 24px;
+    background: rgba(13, 17, 23, 0.95); /* Slightly darker for better contrast */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Brighter border to define the shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Inner text styling for impact */
+  .casualty-count {
+    font-size: 42px !important;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+  }
+
+  .data-label {
+    font-size: 8px;
+    opacity: 0.6;
+    letter-spacing: 2px;
+  }
+  /* 5. Scaled Timer Row */
+  .timer-row {
+    gap: 10px; /* Closer blocks */
+    align-items: center;
+  }
+
+  .time-box {
+    width: 44px; /* Shrunk time boxes */
+    height: 44px;
+    font-size: 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .label {
+    font-size: 7px;
+  }
+
+  /* 5. Bottom Stats */
+  .stat-col {
+    padding: 2vh 0;
+  }
+
+  .stat-value-blue, .stat-value-red {
+    font-size: 20px;
+  }
+    .injured-box {
+    font-size: 9px; /* Smaller for mobile to keep margins clean */
+    margin-top: -10px;
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/*---------------------------------------------*/
+:root {
+  --bg-dark: #05070a;
+  --card-bg: rgba(13, 17, 23, 0.85);
+  --accent-blue: #58a6ff;
+  --accent-purple: #bc8cff;
+  --text-gray: #8b949e;
+  --border-color: rgba(48, 54, 61, 0.8);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; 
+  background-color: var(--bg-dark);
+  color: #f0f6fc;
+  font-family: 'Inter', sans-serif;
+}
+
+.monitor-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 2vh 0 0 0;
+  box-sizing: border-box;
+  background: radial-gradient(circle at center, #1c2128 0%, #05070a 70%);
+}
+
+.top-section { text-align: center; z-index: 2; }
+
+.top-pill {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--text-gray);
+  display: inline-block;
+  margin-bottom: 1vh;
+}
+
+.live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #f85149;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 12px #f85149;
+}
+
+.main-title { font-size: clamp(32px, 5vh, 48px); font-weight: 800; margin: 0; }
+.sub-title { font-size: 9px; color: var(--text-gray); letter-spacing: 3px; margin: 1vh 0; margin-top: 5vh; opacity: 50%;}
+
+.source-tag {
+  display: inline-block;
+  border: 1px solid rgba(255, 166, 87, 0.4);
+  color: #ffa657;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 5vh;
+}
+
+.source-tag a { color: #ffa657; text-decoration: underline; margin-right: 4px; }
+
+.center-section { display: flex; justify-content: center; align-items: center; flex-grow: 1; position: relative; }
+.center-section::before {
+  content: ''; position: absolute; width: 400px; height: 400px; 
+  background: var(--accent-blue); filter: blur(150px); opacity: 0.1; z-index: 0;
+}
+
+.data-card {
+  z-index: 1; background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 5vh 8vw; border-radius: 28px; text-align: center; backdrop-filter: blur(20px);
+}
+
+.casualty-count {
+  font-size: clamp(80px, 12vh, 130px); font-weight: 900; font-family: monospace;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  line-height: 1; margin-bottom: 2vh;
+}
+
+.data-label { font-size: 13px; letter-spacing: 3px; color: var(--text-gray); margin-bottom: 4vh; }
+
+.timer-row { display: flex; justify-content: center; gap: 15px; }
+.time-box {
+  background: rgba(78, 78, 78, 0.4); border: 1px solid var(--border-color);
+  width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+  border-radius: 12px; font-size: 24px; font-weight: 700; color: #fff;
+}
+.label { font-size: 9px; color: var(--text-gray); margin-top: 8px; display: block; }
+.separator { font-size: 24px; color: var(--border-color); padding-bottom: 20px; }
+
+.bottom-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; z-index: 5; }
+
+.see-more-btn {
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-gray); padding: 10px 24px; border-radius: 8px;
+  font-size: 11px; letter-spacing: 2px; cursor: pointer; margin-bottom: 2vh;
+}
+
+.bottom-table {
+  width: 100%; display: grid; grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-color); background: rgba(10, 12, 16, 0.8);
+}
+
+.stat-col { padding: 3vh 0; display: flex; flex-direction: column; align-items: center; }
+.left-border { border-right: 1px solid var(--border-color); }
+.stat-label { font-size: 11px; color: var(--text-gray); letter-spacing: 1.5px; margin-bottom: 1vh; }
+.stat-value-red { font-size: 28px; font-weight: 700; color: var(--accent-blue); font-family: monospace; }
+.stat-value-blue { font-size: 28px; font-weight: 700; color:#ff7b72; font-family: monospace; }
+.stat-value-blue-injured { font-size: 13px; font-weight: 700; color:#ff7b72; font-family: monospace; opacity:  60%;}
+.stat-value-red-injured { font-size: 13px; font-weight: 700; color: var(--accent-blue); font-family: monospace; opacity: 60%;}
+
+/* --- DESKTOP STYLES --- */
+.injured-box {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-gray);
+  letter-spacing: 2px;
+  margin-top: -15px; /* Pulls it closer to the main count */
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.injured-val {
+  color: #ffa657; /* Using your orange theme color */
+  font-family: monospace;
+  margin-left: 5px;
+}
